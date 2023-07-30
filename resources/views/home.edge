@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Custom File Upload Button</title>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+  <!-- Bootstrap CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" />
+  <!-- Google Fonts  -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+  <div class="title">
+    <h3 style="color:#fff">Speech To Text AI Tool⚡</h3>
+      <form action="/upload" method="POST" enctype="multipart/form-data" id="uploadForm">
+        <input type="file" name="audioFile" accept="audio/*" id="file-input" />
+
+        <label for="file-input">
+          <i class="fa-solid fa-arrow-up-from-bracket"></i>
+          &nbsp; Choose Files To Upload
+        </label>
+        <div id="num-of-files" style="color:white;">No Files Choosen</div>
+        <ul id="files-list"></ul>
+        <button class="btn btn-outline-primary" type="submit" id="uploadButton" disabled>Upload</button>
+      </form>
+    </div>
+
+  <canvas id="canvas"></canvas>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+
+</html>
