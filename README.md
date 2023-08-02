@@ -6,6 +6,6 @@ An artificial intelligence supported NodeJS application that allows the audio fi
 
 ## Tools & Frameworks
 
-- AssemblyAI
-
+- OpenAI Whisper
 - AdonisJS
+- Typescript
