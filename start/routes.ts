@@ -21,4 +21,4 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/', 'HomeController.index')
-Route.post('/upload', 'HomeController.upload')
+Route.post('/uploadOpenAI', 'HomeController.uploadOpenAI')
