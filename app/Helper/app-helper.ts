@@ -15,8 +15,6 @@ async function uploadAudioFileToOpenAI(token: string, filePath: string, model: s
     formData.append('file', await fs.readFile(filePath), uniqueFilename)
     formData.append('model', model)
 
-    formData.append('model', model)
-
     const headers = {
       Authorization: `Bearer ${token}`,
       ...formData.getHeaders(),
