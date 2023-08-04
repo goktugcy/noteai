@@ -1,5 +1,6 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { uploadAudioFileToOpenAI } from 'Helpers/app-helper'
+import { MultipartFileContract } from '@ioc:Adonis/Core/BodyParser'
 
 import Env from '@ioc:Adonis/Core/Env'
 // import fs from 'fs'
@@ -17,7 +18,7 @@ export default class HomeController {
       const audioFile = request.file('audioFile', {
         extnames: ['mp3', 'ogg', 'wav'],
         size: '10mb',
-      }) as any
+      }) as MultipartFileContract
 
       if (!apiToken) {
         throw new Error('OpenAI API anahtarı bulunamadı.')
@@ -27,7 +28,7 @@ export default class HomeController {
         throw new Error('Dosya bulunamadı.')
       }
 
-      const tempPath = audioFile.tmpPath
+      const tempPath = audioFile.tmpPath as string
 
       const result = await uploadAudioFileToOpenAI(apiToken, tempPath, model)
 
