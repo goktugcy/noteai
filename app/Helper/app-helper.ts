@@ -1,6 +1,7 @@
 import fs from 'fs/promises'
 import axios from 'axios'
 import FormData from 'form-data'
+import { v4 as uuidv4 } from 'uuid'
 
 function generateRandomString() {
   const randomString = Math.random().toString(36).substring(2, 15)
@@ -10,7 +11,10 @@ function generateRandomString() {
 async function uploadAudioFileToOpenAI(token: string, filePath: string, model: string) {
   try {
     const formData = new FormData()
-    formData.append('file', await fs.readFile(filePath))
+    const uniqueFilename = `${uuidv4()}.mp3`
+    formData.append('file', await fs.readFile(filePath), uniqueFilename)
+    formData.append('model', model)
+
     formData.append('model', model)
 
     const headers = {
